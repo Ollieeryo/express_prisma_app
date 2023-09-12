@@ -27,3 +27,52 @@ model users {
   hashPassword String
   role         Int
 }
+
+model Site {
+  id  Int @id @default(autoincrement())
+  Name String
+}
+
+model NameList {
+  siteId    Int      
+  name      String   
+  nameDesc  String?  
+  tableDesc String   
+  gatewayId Int
+  UId       Int
+  @@unique([name])      
+}
+
+model power {
+  ts            DateTime  
+  siteId        Int       
+  name          String    
+  ch1Watt       Int?
+  ch2Watt       Int?
+  ch3Watt       Int?
+  powerConsumed Float?
+  energyConsumed Float?
+  total         Float?
+  ch1Current    Float?
+  ch2Current    Float?
+  ch3Current    Float?
+  
+  @@unique([siteId, name])
+}
+
+model power_09 {
+  ts            DateTime  
+  siteId        Int       
+  name          String    
+  ch1Watt       Int?
+  ch2Watt       Int?
+  ch3Watt       Int?
+  powerConsumed Float?
+  energyConsumed Float?
+  total         Float?
+  ch1Current    Float?
+  ch2Current    Float?
+  ch3Current    Float?
+  
+  @@unique([siteId, name])
+}

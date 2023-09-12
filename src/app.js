@@ -158,11 +158,14 @@ const corsMiddleware = require('./middleware/corsMiddleware');
 const bodyParserMiddleware = require('./middleware/bodyParserMiddleware');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
+const dataRoutes = require('./routes/dataRoutes');
 
 app.use(corsMiddleware);
 app.use(bodyParserMiddleware);
 app.use('/api', productRoutes);
-app.use('/api', userRoutes)
+app.use('/api', userRoutes);
+app.use('/api', dataRoutes)
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
